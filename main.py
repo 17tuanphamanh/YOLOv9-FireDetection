@@ -50,14 +50,14 @@ def send_telegram_alert(image_path):
     if time.time() - last_alert_time < ALERT_INTERVAL:
         return
     try:
-        alert_text = f"🚨 CẢNH BÁO!\n🔥 LỬA: {fire_count} (Diện tích: {fire_area}) | 💨 KHÓI: {smoke_count} (Diện tích: {smoke_area})\n🕒 {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}"
+        alert_text = f" CẢNH BÁO!\n LỬA: {fire_count} (Diện tích: {fire_area}) |  KHÓI: {smoke_count} (Diện tích: {smoke_area})\n🕒 {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}"
         url = f"https://api.telegram.org/bot{config.BOT_TOKEN}/sendPhoto"
         with open(image_path, "rb") as img:
             response = requests.post(url, data={"chat_id": config.CHAT_ID, "caption": alert_text}, files={"photo": img})
         if response.status_code == 200:
             last_alert_time = time.time()
     except Exception as e:
-        logging.error(f"❌ Lỗi khi gửi cảnh báo: {str(e)}")
+        logging.error(f" Lỗi khi gửi cảnh báo: {str(e)}")
 
 # Tkinter
 root = tk.Tk()
@@ -70,7 +70,7 @@ video_label.pack(fill=tk.BOTH, expand=True)  # Phóng to video
 status_label = Label(root, text="Trạng thái: An toàn", font=("Arial", 24, "bold"), fg="green")
 status_label.pack()
 
-fire_smoke_label = Label(root, text="🔥 0 | 💨 0", font=("Arial", 20))
+fire_smoke_label = Label(root, text=" 0 |  0", font=("Arial", 20))
 fire_smoke_label.pack()
 
 canvas = Canvas(root, width=300, height=300, bg="white")
@@ -91,7 +91,7 @@ def update_ui():
         video_label.config(image=img)
         video_label.img_tk = img
     status_label.config(text=f"Trạng thái: {status}", fg="red" if status == "Nguy hiểm" else "green")
-    fire_smoke_label.config(text=f"🔥 {fire_count} (Diện tích: {fire_area}) | 💨 {smoke_count} (Diện tích: {smoke_area})")
+    fire_smoke_label.config(text=f" {fire_count} (Diện tích: {fire_area}) |  {smoke_count} (Diện tích: {smoke_area})")
     root.configure(bg="red" if status == "Nguy hiểm" else "white")
     canvas.delete("all")
     if fire_count > 0:
