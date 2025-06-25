@@ -69,9 +69,8 @@ When fire or smoke is detected:
 
 ## Example Output
 
-Below is an example of a detection alert sent to Telegram:
+![Detection Example](images/ex.jpg)
 
-![Fire Detection Alert](https://raw.githubusercontent.com/17tuanphamanh/YOLOv9-FireDetection/main/images/sample_alert.png)
 
 ## Contributing
 
