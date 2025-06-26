@@ -1,14 +1,14 @@
 # YOLOv9-FireDetection
-🔥 Real-time fire and smoke detection using YOLOv9, with Telegram alert integration (image + timestamp).
+🔥 Real-time fire and smoke detection using YOLOv8n, with Telegram alert integration (image + timestamp).
 
 
 # YOLOv9 Fire Detection System
 
-A real-time fire and smoke detection system using YOLOv9, with automated alerts sent to Telegram.
+A real-time fire and smoke detection system using YOLOv8n, with automated alerts sent to Telegram.
 
 ## Features
 
-- Detects fire and smoke in real time using a pre-trained YOLOv9 model.
+- Detects fire and smoke in real time using a pre-trained YOLOv8n model.
 - Sends alert messages and annotated images via Telegram.
 - Stores all detection snapshots locally.
 - Easy to configure and run on any system with Python 3.8+.
